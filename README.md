@@ -151,3 +151,35 @@ Triple J Technologies Ltd.
 
 Nigeria
 
+
+---
+
+
+# Platform Screenshots
+
+## Operations Dashboard
+
+Real-time operational visibility across the BOP infrastructure stack, including
+MikroTik, FreeRADIUS, UISP, subscriber sessions, device health, and network
+performance indicators.
+
+![BOP Operations Dashboard](screenshots/01-operations-dashboard.png)
+
+---
+
+## Provisioning Console
+
+Centralized subscriber lifecycle management with governed service actions and
+provision-job tracking.
+
+![BOP Provisioning Console](screenshots/02-provisioning-console.png)
+
+---
+
+## Provision Job Detail
+
+Detailed execution record for governed provisioning workflows, providing
+operational traceability and visibility into workflow results.
+
+![BOP Provision Job Detail](screenshots/03-provision-job-detail.png)
+
