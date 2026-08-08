@@ -1,9 +1,11 @@
 # Bushmaster Operations Platform (BOP)
 
-![Status](https://img.shields.io/badge/status-Commercial%20Development-blue)
-![Version](https://img.shields.io/badge/version-v0.6-success)
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Django](https://img.shields.io/badge/Django-5.2-success)
+![Bushmaster Operations Platform](branding/bop-logo.png)
+
+**Automation. Provisioning. Growth.**
+
+**Documentation:** [Architecture](docs/ARCHITECTURE.md) | [Roadmap](docs/ROADMAP.md) | [Platform Screenshots](#platform-screenshots)
+
 
 ---
 
@@ -29,7 +31,7 @@ Commercial Development
 
 Current Milestone:
 
-v0.6 – Governed Provision Jobs
+v0.7 – Operations Console
 
 ---
 
