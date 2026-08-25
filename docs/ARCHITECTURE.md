@@ -1,47 +1,70 @@
-# BOP High-Level Architecture
+# BOP high-level architecture
 
-Bushmaster Operations Platform (BOP) is designed as a governed ISP Operations Support System / Business Support System (OSS/BSS).
+Bushmaster Operations Platform (BOP) is a governed ISP Operations Support System /
+Business Support System (OSS/BSS).
 
-## Core Architecture
+## System boundary
 
-Operations Console
-        |
-        v
-Provision Jobs
-        |
-        v
-Workflow Engine
-        |
-        +-- MikroTik
-        |
-        +-- FreeRADIUS
-        |
-        +-- UISP
-        |
-        v
-Subscriber Network
+```text
+Staff Operations Console                 Customer Self-Service Portal
+          |                                          |
+          +------------------+-----------------------+
+                             |
+                  Identity and Permission Layer
+                             |
+             Workflow, Billing and Notification Engine
+                             |
+       +---------------------+---------------------+
+       |                     |                     |
+   MikroTik              FreeRADIUS              UISP
+gateway/PPPoE       authentication/accounting   device plane
+       |                     |                     |
+       +---------------- Subscriber Network -------+
 
-## Architectural Principles
+External business services:
+  Paystack | BulkSMSNigeria | Meta WhatsApp Cloud API | Brevo | Mapbox
+```
+
+## Authority model
+
+- BOP is the customer, billing, provisioning and automation authority.
+- MikroTik is the gateway, PPPoE server and subscriber-enforcement plane.
+- FreeRADIUS is the authentication, authorization and accounting authority.
+- UISP is the Ubiquiti hardware-monitoring plane and an import source; it is not
+  the billing-enforcement plane.
+- Paystack confirms customer payments through independently verified callbacks
+  and signed webhooks.
+- Notification channels are independent adapters behind consent checks, an
+  idempotent evidence ledger and fail-closed transmission switches.
+
+## Architectural principles
 
 - Governed subscriber lifecycle operations
-- Verification before state transition completion
+- Verification before completing infrastructure state transitions
 - Rollback after failed infrastructure changes
-- Separation of business logic from infrastructure providers
+- Separation of business rules from infrastructure and delivery providers
 - Least-privilege infrastructure access
+- Explicit per-channel customer consent
+- Idempotent billing, payments and communications
+- Independent safety interlocks for outbound messaging and network enforcement
 - Auditability and traceability
-- Dedicated test-subscriber validation before production rollout
+- Dedicated pilot validation before production-impacting rollout
 
-## Subscriber Lifecycle
+## Subscriber lifecycle
 
+```text
 PENDING -> PROVISIONED -> ACTIVE
+ACTIVE  -> SUSPENDED   -> ACTIVE
+ACTIVE  -> TERMINATED
+```
 
-ACTIVE -> SUSPENDED -> ACTIVE
+Payment and reminder processing never silently changes this lifecycle. A due
+account becomes operator-visible first; network enforcement is a separate,
+governed workflow with its own production interlock.
 
-ACTIVE -> TERMINATED
+## Source code
 
-## Source Code
-
-The production implementation of Bushmaster Operations Platform is maintained in a private repository.
-
-This public repository documents the platform architecture, development progress, product capabilities, screenshots, and roadmap without publishing proprietary source code.
-
+The production implementation is maintained in a private repository. This
+public repository documents the platform architecture, development progress,
+product capabilities, screenshots and roadmap without publishing proprietary
+source code or operational secrets.
