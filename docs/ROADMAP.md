@@ -1,59 +1,55 @@
-# Bushmaster Operations Platform Roadmap
+# Bushmaster Operations Platform roadmap
 
-## Completed
+## Delivered foundation
 
-### v0.4 - Governed Provisioning
+### Governed provisioning and subscriber lifecycle
 
-- MikroTik provisioning integration
-- FreeRADIUS provisioning integration
-- Verification
-- Cross-system rollback
+- MikroTik and FreeRADIUS provisioning integrations
+- Provision, activate, suspend, restore and terminate workflows
+- Cross-system verification and rollback evidence
+- Provision-job orchestration and immutable audit history
 
-### v0.5 - Governed Subscriber Lifecycle
+### Operations and network visibility
 
-- Provision
-- Activate
-- Suspend
-- Restore
-- Terminate
+- Role-aware staff operations console
+- Infrastructure health dashboard
+- UISP device monitoring and customer/service import
+- Subscriber reconciliation and session correlation
+- UISP/Mapbox topology and device-location map
+- Read-only surveillance identity and reachability inventory
 
-### v0.6 - Governed Provision Jobs
+### Billing and customer operations
 
-- Provision Job orchestration
-- Workflow Engine integration
-- Safe execution summaries
-- Rollback visibility
-- Subscriber lifecycle validation
+- Automated billing cycles and invoice lifecycle
+- Payment confirmation, allocation and reversal controls
+- Isolated customer self-service portal
+- Paystack invoice checkout and signed webhook processing
+- Complimentary unlimited service-plan governance
 
-## Current Development
+## Current: Phase 2 controlled acceptance
 
-### v0.7 - Operations Console
+- Complete paying-subscriber PPPoE access bindings
+- Validate suspend, active-session disconnect, restore and rollback with a
+  dedicated pilot before enabling subscriber-impacting automation
+- Approve and pilot the BUSHMASTER SMS sender ID
+- Configure and pilot Meta WhatsApp Cloud API utility-template delivery
+- Configure and pilot Brevo transactional email delivery
+- Confirm explicit channel consent, opt-out handling and delivery evidence
+- Complete security, recovery and operational acceptance evidence
 
-- Subscriber services view
-- Governed lifecycle action buttons
-- Provision Job history
-- Job detail view
-- User-interface refinement
+## v1.0 production release
 
-## Planned
+- Close all Phase 2 acceptance gates
+- Resolve all Critical and High security findings
+- Rehearse production migration and rollback
+- Complete release notes, operator runbooks and support procedures
+- Create the versioned v1.0.0 release only after explicit production approval
 
-### v0.8 - Billing Foundation
+## Future development
 
-- Invoice lifecycle
-- Payments
-- Grace periods
-- Billing automation
-
-### v0.9 - Customer Operations
-
-- CRM
-- Customer portal
-- Notifications
-- Reporting
-
-### v1.0 - Production Release
-
-- Production-ready ISP operations platform
-- Security hardening
-- Persistent production deployment
-- Operational documentation
+- Mobile customer experience
+- Public and partner REST APIs
+- Multi-tenant operations
+- Advanced reporting and forecasting
+- Governed camera-management VLAN and footage workflows, subject to a separate
+  privacy, retention and access-control phase
