@@ -4,7 +4,9 @@
 
 **Automation. Provisioning. Growth.**
 
-**Documentation:** [Architecture](docs/ARCHITECTURE.md) | [Phase 2 status](docs/PHASE_2_STATUS.md) | [Roadmap](docs/ROADMAP.md) | [Platform screenshots](#platform-screenshots)
+**Release:** `v1.0.0-beta.1` — controlled beta testing
+
+**Documentation:** [Architecture](docs/ARCHITECTURE.md) | [Beta status](docs/PHASE_2_STATUS.md) | [Beta release notes](docs/V1_BETA_RELEASE.md) | [Roadmap](docs/ROADMAP.md) | [Platform screenshots](#platform-screenshots)
 
 ---
 
@@ -18,15 +20,18 @@ infrastructure operations into one governed platform.
 
 ## Current status
 
-**Phase 2 controlled acceptance — updated 25 August 2026**
+**Version 1 Beta 1 — updated 5 September 2026**
 
-The operations console, automated billing, isolated customer portal, Paystack
-checkout, network visibility and provider-neutral notification orchestration are
-deployed. Production-impacting actions and outbound communications remain behind
-independent safety interlocks while subscriber reconciliation and controlled
-provider pilots are completed.
+The current BOP milestone is deployed for controlled beta testing. It combines
+the ISP operations console, automated billing, customer self-service, Paystack
+checkout, network visibility and governed subscriber workflows with the Jerou
+Hospital staff captive-access and registered-device pilot.
 
-See [Phase 2 status](docs/PHASE_2_STATUS.md) for the activation boundary.
+Production-impacting actions remain role-governed, independently switched,
+audited and rollback-capable. This beta milestone is not the final general-
+availability `v1.0.0` release.
+
+See [Beta status](docs/PHASE_2_STATUS.md) for the activation boundary.
 
 ## Technology stack
 
@@ -54,7 +59,11 @@ See [Phase 2 status](docs/PHASE_2_STATUS.md) for the activation boundary.
 - D-3 through D+3 reminder policy with idempotent delivery evidence
 - Infrastructure dashboard, reconciliation console and traffic correlation
 - UISP/Mapbox network topology and device-location map
-- Read-only surveillance inventory for camera identity and reachability metadata
+- Governed surveillance and hospital-device identity inventory
+- Jerou staff self-service enrollment, FreeRADIUS credentials and speed/data policies
+- Captive access for unknown hospital devices with registered-device exemptions
+- Verified EdgeRouter DHCP reservations and daily hospital-device usage controls
+- Role-governed Sentinel AI operations assistant
 - Role-aware staff access and operational audit controls
 
 ## Controlled activation items
@@ -67,6 +76,8 @@ See [Phase 2 status](docs/PHASE_2_STATUS.md) for the activation boundary.
 - Subscriber disconnection remains separate from reminder delivery and cannot be
   activated until the paying-subscriber PPPoE access-binding and rollback gates
   are complete.
+- Jerou captive access is in controlled beta. Downstream wireless equipment must
+  operate in access-point/bridge mode so BOP can identify each client device.
 
 ## High-level architecture
 

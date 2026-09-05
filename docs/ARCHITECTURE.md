@@ -25,6 +25,25 @@ External business services:
   Paystack | BulkSMSNigeria | Meta WhatsApp Cloud API | Brevo | Mapbox
 ```
 
+## Jerou Hospital access plane
+
+```text
+Jerou staff and devices
+          |
+   Ruijie / bridged APs
+          |
+ EdgeRouter switch0 (LAN10)
+    |                 |
+registered MACs    unknown/staff devices
+DHCP exemption     captive redirect
+    |                 |
+ Internet        BOP portal + FreeRADIUS
+```
+
+BOP publishes signed desired state to a scoped gateway synchronizer. The
+synchronizer manages only BOP-owned DHCP reservations and firewall chains;
+camera, subscriber and unrelated router rules remain outside its authority.
+
 ## Authority model
 
 - BOP is the customer, billing, provisioning and automation authority.
@@ -49,6 +68,8 @@ External business services:
 - Independent safety interlocks for outbound messaging and network enforcement
 - Auditability and traceability
 - Dedicated pilot validation before production-impacting rollout
+- Per-device identity visibility through access-point/bridge network topology
+- Role-governed AI assistance through Sentinel
 
 ## Subscriber lifecycle
 

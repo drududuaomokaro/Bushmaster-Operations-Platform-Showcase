@@ -26,9 +26,12 @@
 - Paystack invoice checkout and signed webhook processing
 - Complimentary unlimited service-plan governance
 
-## Current: Phase 2 controlled acceptance
+## Current: v1.0.0 Beta 1
 
 - Complete paying-subscriber PPPoE access bindings
+- Complete Jerou Hospital staff enrollment and captive-access acceptance testing
+- Move all downstream Jerou Wi-Fi equipment to access-point/bridge mode
+- Validate registered-device DHCP, suspension, reconnect and daily-usage behaviour
 - Validate suspend, active-session disconnect, restore and rollback with a
   dedicated pilot before enabling subscriber-impacting automation
 - Approve and pilot the BUSHMASTER SMS sender ID
@@ -37,13 +40,13 @@
 - Confirm explicit channel consent, opt-out handling and delivery evidence
 - Complete security, recovery and operational acceptance evidence
 
-## v1.0 production release
+## Stable v1.0.0 production release
 
 - Close all Phase 2 acceptance gates
 - Resolve all Critical and High security findings
 - Rehearse production migration and rollback
 - Complete release notes, operator runbooks and support procedures
-- Create the versioned v1.0.0 release only after explicit production approval
+- Promote the beta to stable `v1.0.0` only after explicit production approval
 
 ## Future development
 
