@@ -1,5 +1,10 @@
 # BOP v1.0.0 Beta 1
 
+> Historical milestone: this document records the 5 September 2026 beta. The
+> current controlled-production capability set is documented in
+> [FEATURES.md](FEATURES.md). Paystack was subsequently replaced by verified
+> Flutterwave v3 Standard payments.
+
 **Release date:** 5 September 2026  
 **Release stage:** Controlled beta testing  
 **Production source milestone:** `e45dc89`

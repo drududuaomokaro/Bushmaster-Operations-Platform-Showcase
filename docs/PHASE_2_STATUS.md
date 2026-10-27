@@ -1,42 +1,43 @@
-# Version 1 beta-testing status
+# Version 1 controlled-production status
 
-**Status date:** 5 September 2026
+**Status date:** 27 October 2026
 
-**Milestone:** `v1.0.0-beta.1`
+**Milestone lineage:** `v1.0.0-beta.1`
 
-This document separates implemented product capability from production
-activation. A feature can be deployed and testable while its real-world effect
-remains intentionally disabled until the related acceptance evidence is
-complete.
+This document separates implemented product capability from unrestricted
+automation. BOP is used in a controlled production environment, while actions
+that affect subscribers, firmware or external communications retain independent
+gates, verification and audit evidence.
 
-## Operational and under beta acceptance
+## Operational in the controlled production environment
 
 - Staff operations console with role-aware access and audit history
 - Customer, plan, Internet-service and PPPoE provisioning records
 - MikroTik, FreeRADIUS and UISP visibility for authorized staff
 - Automated billing, invoice generation and payment allocation
-- Isolated customer portal and Paystack checkout
+- Isolated customer portal and verified Flutterwave v3 checkout
 - UISP/Mapbox network map and subscriber traffic correlation
 - Consent-aware billing-reminder scheduler and notification evidence ledger
-- BulkSMSNigeria sandbox delivery path
+- Production SMS and email delivery with consent and evidence controls
 - Jerou Hospital staff identity enrollment and editable access policies
 - FreeRADIUS-backed staff captive-portal authentication
 - Governed hospital-device and camera registration
 - Verified EdgeRouter LAN10 DHCP reservations
 - Captive access for unknown hospital-network devices, with approved-device exemptions
 - Role-governed Sentinel AI operations assistance
+- Guided subscriber provisioning, access-binding and activation gates
+- Deep-health reporting and guarded thirty-minute self-healing
+- Supervised UISP firmware updates with explicit device selection
+- Lightweight Pegasus Sentinel Android companion
 
-## Deployed but fail-closed
+## Controlled and fail-closed boundaries
 
-### Live customer communications
+### Customer communications
 
-- **SMS:** the provider adapter is deployed; live transmission awaits
-  BUSHMASTER sender-ID approval and a controlled pilot.
-- **WhatsApp:** the Meta Cloud API adapter is deployed; transmission awaits a
-  production token, registered phone-number ID, approved utility template and
-  a controlled pilot.
-- **Email:** the Brevo adapter is deployed; transmission awaits a verified
-  sender, production credential and a controlled pilot.
+- **SMS and email:** available through independently configured production adapters.
+  Delivery requires explicit consent, enabled channel switches and an idempotent evidence record.
+- **WhatsApp:** implemented as an optional adapter requiring Meta production
+  credentials, a registered number and an approved utility template.
 
 Every channel requires explicit customer consent. Existing preference records
 do not gain email consent automatically. Channel switches and a global reminder
@@ -44,14 +45,18 @@ switch must all be enabled before a provider request can be transmitted.
 
 ### Subscriber enforcement
 
-Billing reminders do not suspend subscribers and do not modify MikroTik or
-FreeRADIUS. D-3 through D+3 messages are communication milestones; an unpaid
-account becomes an operator-visible candidate after the grace period.
+Subscriber disconnection remains separate from reminder delivery. An unpaid
+invoice cannot suspend service until the configured grace period has expired,
+the final notice is recorded, the PPPoE access binding is enforceable and the
+independent production switches permit the action. Payment restoration follows
+the same verified, audited workflow.
 
-Live subscriber disconnection remains a separately governed capability. It must
-stay disabled until paying subscribers have verified PPPoE topology bindings,
-the pilot proves suspend/disconnect/restore/rollback behaviour, and production
-approval is recorded.
+### Self-healing and firmware operations
+
+Deep-health automation may repair only approved, reversible failure classes.
+Other findings become operator recommendations. Firmware work requires explicit
+device selection, online/preflight evidence, serial execution and reconnect
+verification. Conflicting UISP native or beta policies pause BOP's firmware worker.
 
 ### Jerou Hospital network pilot
 

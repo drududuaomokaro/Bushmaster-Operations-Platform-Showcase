@@ -4,9 +4,9 @@
 
 **Automation. Provisioning. Growth.**
 
-**Release:** `v1.0.0-beta.1` — controlled beta testing
+**Release stage:** controlled production and continuing v1 acceptance
 
-**Documentation:** [Architecture](docs/ARCHITECTURE.md) | [Beta status](docs/PHASE_2_STATUS.md) | [Beta release notes](docs/V1_BETA_RELEASE.md) | [Roadmap](docs/ROADMAP.md) | [Platform screenshots](#platform-screenshots)
+**Documentation:** [Complete feature catalogue](docs/FEATURES.md) | [Architecture](docs/ARCHITECTURE.md) | [Current status](docs/PHASE_2_STATUS.md) | [Beta release notes](docs/V1_BETA_RELEASE.md) | [Roadmap](docs/ROADMAP.md) | [Platform screenshots](#platform-screenshots)
 
 ---
 
@@ -20,12 +20,13 @@ infrastructure operations into one governed platform.
 
 ## Current status
 
-**Version 1 Beta 1 — updated 5 September 2026**
+**Updated 27 October 2026**
 
-The current BOP milestone is deployed for controlled beta testing. It combines
-the ISP operations console, automated billing, customer self-service, Paystack
-checkout, network visibility and governed subscriber workflows with the Jerou
-Hospital staff captive-access and registered-device pilot.
+The current BOP milestone is deployed for controlled production use. It combines
+the ISP operations console, guided subscriber provisioning, automated billing,
+customer self-service, Flutterwave checkout, network visibility, deep-health
+automation, supervised Ubiquiti firmware operations and the Jerou Hospital
+identity, attendance and captive-access plane.
 
 Production-impacting actions remain role-governed, independently switched,
 audited and rollback-capable. This beta milestone is not the final general-
@@ -41,43 +42,48 @@ See [Beta status](docs/PHASE_2_STATUS.md) for the activation boundary.
 - MikroTik RouterOS API
 - FreeRADIUS authentication and accounting
 - UISP monitoring and CRM import APIs
-- Paystack payments
+- Flutterwave v3 Standard payments
 - Mapbox network mapping
 - BulkSMSNigeria, Meta WhatsApp Cloud API and Brevo delivery adapters
 
 ## Implemented capabilities
 
-- Customer, service-plan and Internet-service management
+- Customer, service-plan, Internet-service and subscriber-lifecycle management
+- Guided provisioning with station identity, VLAN, PPPoE, access-binding and activation gates
 - Governed provision, activate, suspend, restore and terminate workflows
 - Cross-system verification, rollback evidence and immutable audit history
-- MikroTik PPPoE and subscriber-session integration
+- MikroTik PPPoE, VLAN, session and subscriber-enforcement integration
 - FreeRADIUS authentication, authorization and accounting integration
-- UISP customer/service import and Ubiquiti device monitoring
-- Automated billing cycles, invoice lifecycle, payment allocation and overdue tracking
-- Isolated customer self-service portal with Paystack invoice checkout
-- Consent-aware SMS, WhatsApp and email reminder orchestration
-- D-3 through D+3 reminder policy with idempotent delivery evidence
-- Infrastructure dashboard, reconciliation console and traffic correlation
-- UISP/Mapbox network topology and device-location map
-- Governed surveillance and hospital-device identity inventory
-- Jerou staff self-service enrollment, FreeRADIUS credentials and speed/data policies
-- Captive access for unknown hospital devices with registered-device exemptions
-- Verified EdgeRouter DHCP reservations and daily hospital-device usage controls
-- Role-governed Sentinel AI operations assistant
-- Role-aware staff access and operational audit controls
+- UISP customer/service import, Ubiquiti monitoring and device-detail diagnostics
+- Supervised firmware updates with explicit device selection and offline-device exclusion
+- Thirty-minute deep-health checks, guarded self-healing and operator recommendations
+- Automated billing cycles, customer-specific renewal days, invoice lifecycle and payment allocation
+- Isolated customer portal with verified Flutterwave checkout and webhook processing
+- Consent-aware SMS, WhatsApp and email reminders with a three-day grace policy
+- Governed automatic suspension and restoration with independent safety interlocks
+- Reconciliation, subscriber traffic correlation and UISP/Mapbox network mapping
+- Surveillance probe registration, governed inventory and health reporting
+- Jerou staff enrollment, policies, attendance, roster, captive access and device controls
+- Role-governed Sentinel AI with typed, voice, learning and operational-assistance modes
+- Lightweight Pegasus Sentinel Android companion with offline and USB-first operation
+- Role-aware staff administration, secure customer access and complete audit evidence
 
-## Controlled activation items
+The [complete feature catalogue](docs/FEATURES.md) separates production,
+controlled and optional-provider capabilities.
 
-- Live SMS is gated pending sender-ID approval and a controlled delivery pilot.
-- Meta WhatsApp delivery is gated pending production credentials, a registered
-  phone-number ID and an approved utility template.
-- Brevo email delivery is gated pending a verified sender, production credential
-  and a controlled delivery pilot.
-- Subscriber disconnection remains separate from reminder delivery and cannot be
-  activated until the paying-subscriber PPPoE access-binding and rollback gates
-  are complete.
-- Jerou captive access is in controlled beta. Downstream wireless equipment must
-  operate in access-point/bridge mode so BOP can identify each client device.
+## Safety and activation boundaries
+
+- SMS and email delivery are independently switched, consent-aware and recorded
+  in an idempotent notification ledger. WhatsApp remains an optional provider
+  integration that requires approved Meta production configuration.
+- Payment callbacks and webhooks are independently verified against Flutterwave
+  before BOP allocates a payment.
+- Subscriber suspension remains separate from notification delivery and requires
+  an enforceable PPPoE access binding, completed grace period and final notice.
+- Self-healing and firmware operations are scoped, audited and designed to fail
+  closed when evidence is stale, a device is offline or provider policy conflicts.
+- Jerou downstream wireless equipment must operate in access-point/bridge mode
+  so BOP can identify and govern each client device.
 
 ## High-level architecture
 
@@ -93,7 +99,7 @@ See [Beta status](docs/PHASE_2_STATUS.md) for the activation boundary.
       MikroTik                FreeRADIUS                UISP
    access enforcement        AAA/accounting       device monitoring
                                   |
-                  Paystack and notification providers
+                 Flutterwave and notification providers
 ```
 
 ## Repository

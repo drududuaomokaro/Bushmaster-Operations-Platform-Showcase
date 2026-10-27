@@ -22,7 +22,7 @@ gateway/PPPoE       authentication/accounting   device plane
        +---------------- Subscriber Network -------+
 
 External business services:
-  Paystack | BulkSMSNigeria | Meta WhatsApp Cloud API | Brevo | Mapbox
+  Flutterwave | BulkSMSNigeria | Meta WhatsApp Cloud API | Brevo | Mapbox
 ```
 
 ## Jerou Hospital access plane
@@ -51,10 +51,38 @@ camera, subscriber and unrelated router rules remain outside its authority.
 - FreeRADIUS is the authentication, authorization and accounting authority.
 - UISP is the Ubiquiti hardware-monitoring plane and an import source; it is not
   the billing-enforcement plane.
-- Paystack confirms customer payments through independently verified callbacks
-  and signed webhooks.
+- Flutterwave confirms customer payments through independently verified callbacks,
+  signed webhooks and transaction-API verification.
 - Notification channels are independent adapters behind consent checks, an
   idempotent evidence ledger and fail-closed transmission switches.
+
+## Health and firmware control plane
+
+```text
+UISP and system telemetry
+          |
+  Thirty-minute deep-health engine
+          |
+ findings + recommendations + guarded repairs
+          |
+  operator email and immutable audit evidence
+
+UISP firmware inventory
+          |
+ device selection + preflight + policy-conflict check
+          |
+ serial update + reconnect verification
+```
+
+Health automation acts only on approved, reversible failure classes. Firmware
+updates remain supervised and exclude devices that are offline or fail preflight.
+
+## Sentinel and Pegasus assistance plane
+
+Sentinel combines typed and voice interaction with BOP-aware context, role checks,
+trusted-device checks and confirmation gates. Pegasus is a lightweight Android
+companion that keeps common commands and prompts offline, stores large assets on
+USB where available, and securely pairs to BOP for extended functions.
 
 ## Architectural principles
 

@@ -23,21 +23,30 @@
 - Automated billing cycles and invoice lifecycle
 - Payment confirmation, allocation and reversal controls
 - Isolated customer self-service portal
-- Paystack invoice checkout and signed webhook processing
+- Flutterwave v3 invoice checkout, signed webhooks and transaction verification
 - Complimentary unlimited service-plan governance
 
-## Current: v1.0.0 Beta 1
+### Guided field operations and automation
+
+- Step-by-step provisioning progress and installation guidance
+- VLAN, PPPoE and access-binding activation gates
+- Thirty-minute deep-health reporting and guarded self-healing
+- Supervised UISP firmware updates with selectable devices
+- Sentinel voice and typed operations assistance
+- Lightweight USB-first Pegasus Sentinel Android companion
+
+## Current: controlled production and v1 acceptance
 
 - Complete paying-subscriber PPPoE access bindings
 - Complete Jerou Hospital staff enrollment and captive-access acceptance testing
 - Move all downstream Jerou Wi-Fi equipment to access-point/bridge mode
 - Validate registered-device DHCP, suspension, reconnect and daily-usage behaviour
-- Validate suspend, active-session disconnect, restore and rollback with a
-  dedicated pilot before enabling subscriber-impacting automation
-- Approve and pilot the BUSHMASTER SMS sender ID
+- Continue validating suspend, active-session disconnect, restore and rollback
+  across every paying-subscriber access binding
+- Monitor production SMS and email delivery evidence and opt-out handling
 - Configure and pilot Meta WhatsApp Cloud API utility-template delivery
-- Configure and pilot Brevo transactional email delivery
-- Confirm explicit channel consent, opt-out handling and delivery evidence
+- Extend self-healing only after each repair class has controlled acceptance evidence
+- Continue supervised, serial firmware acceptance across the UISP fleet
 - Complete security, recovery and operational acceptance evidence
 
 ## Stable v1.0.0 production release
